@@ -22,3 +22,15 @@ sans_punctuation_documents = []
 for i in lower_case_documents:
     sans_punctuation_documents.append(re.sub(r'[^\w\s]','',i))
 print(sans_punctuation_documents)
+
+preprocessed_documents = []
+for i in sans_punctuation_documents:
+    preprocessed_documents.append(i.split())
+print(preprocessed_documents)
+
+frequency_list = []
+import pprint
+from collections import Counter
+for i in preprocessed_documents:
+    frequency_list.append(Counter(i))
+pprint.pprint(frequency_list)
